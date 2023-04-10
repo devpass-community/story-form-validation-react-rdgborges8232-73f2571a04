@@ -23,9 +23,19 @@ const Register = () => {
     });
   };
 
-  const handleFormSubmit = (event) => {
+const handleFormSubmit = (event) => {
     event.preventDefault();
-    // TODO
+    setErrorMsg("");
+    setSuccessMsg("");
+    const allFieldsEntered = Object.keys(state).every(
+      (key) => state[key].trim() !== ""
+    );
+
+    if (allFieldsEntered) {
+      setSuccessMsg("You have successfully registered");
+    } else {
+      setErrorMsg("All the fields are required.");
+    }
   };
 
   return (
